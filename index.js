@@ -4,7 +4,7 @@ module.exports = (context, options) => {
   // Default: ignore no-mix-dearu-desumasu in footnotes
   const targetRuleIds = Array.isArray(options.ruleId)
     ? options.ruleId
-    : [options.ruleId || 'ja-technical-writing/no-mix-dearu-desumasu'];
+    : [options.ruleId || "ja-technical-writing/no-mix-dearu-desumasu"];
 
   return {
     [Syntax.FootnoteDefinition](node) {
