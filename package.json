@@ -1,0 +1,30 @@
+{
+  "name": "textlint-filter-rule-footnote",
+  "version": "1.0.0",
+  "description": "textlint filter rule that ignores errors in footnotes",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test/**/*.js"
+  },
+  "keywords": [
+    "textlint",
+    "textlint-rule",
+    "textlint-filter-rule",
+    "footnote"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@textlint/kernel": "^15.5.1",
+    "@textlint/textlint-plugin-markdown": "^15.5.1",
+    "mocha": "^10.0.0",
+    "textlint": "^13.0.0",
+    "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
+    "textlint-rule-no-todo": "^2.0.1",
+    "textlint-tester": "^13.0.0"
+  },
+  "peerDependencies": {
+    "textlint": ">=13.0.0"
+  },
+  "dependencies": {}
+}
