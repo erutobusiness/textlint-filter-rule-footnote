@@ -12,6 +12,10 @@
     "textlint-filter-rule",
     "footnote"
   ],
+  "files": [
+    "index.js",
+    "README.md"
+  ],
   "author": "",
   "license": "MIT",
   "devDependencies": {
