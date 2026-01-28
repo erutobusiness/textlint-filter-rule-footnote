@@ -1,4 +1,3 @@
-"use strict";
 const assert = require("assert");
 const { TextlintKernel } = require("@textlint/kernel");
 const ruleNoTodo =

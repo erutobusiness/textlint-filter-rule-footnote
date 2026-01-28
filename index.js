@@ -1,4 +1,3 @@
-"use strict";
 module.exports = (context, options) => {
   const { shouldIgnore, Syntax } = context;
   // Default: ignore no-mix-dearu-desumasu in footnotes
