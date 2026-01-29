@@ -6,7 +6,8 @@ module.exports = (context, options) => {
     : [options.ruleId || "ja-technical-writing/no-mix-dearu-desumasu"];
 
   return {
-    [Syntax.FootnoteDefinition](node) {
+    // FIX: Syntax.FootnoteDefinition is undefined/broken in some versions
+    [Syntax.FootnoteDefinition || "footnoteDefinition"](node) {
       // Ignore the target rules in the range of the footnote definition
       for (const ruleId of targetRuleIds) {
         shouldIgnore(node.range, {
