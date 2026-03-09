@@ -31,7 +31,7 @@
     "@biomejs/biome": "^2.3.13",
     "@textlint/kernel": "^15.5.1",
     "@textlint/textlint-plugin-markdown": "^15.5.1",
-    "mocha": "^10.0.0",
+    "mocha": "^11.7.5",
     "textlint": "^13.0.0",
     "textlint-rule-no-mix-dearu-desumasu": "^6.0.4",
     "textlint-rule-no-todo": "^2.0.1",
