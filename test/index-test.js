@@ -39,25 +39,22 @@ describe("textlint-filter-rule-footnote", () => {
   };
 
   context("when footnote contains TODO", () => {
-    // Skipped: Test environment (remark) does not seem to support GFM Footnotes by default or via simple config.
-    // The parser treats footnotes as Paragraphs, so filter is never called.
-    // Assuming implementation is correct as it logic runs in production.
-    it.skip("should not report error", async () => {
-      const text = `
-本文。
-脚注[^1]
+    it("should not report error", async () => {
+      const text = `本文。脚注[^1]
 
 [^1]: TODO: 脚注内のTODOは無視される
 `;
       const result = await lint(text);
-      assert.strictEqual(result.messages.length, 0);
+      const todoErrors = result.messages.filter(
+        (m) => m.ruleId === "no-todo",
+      );
+      assert.strictEqual(todoErrors.length, 0);
     });
   });
 
   context("when body contains TODO", () => {
     it("should report error", async () => {
-      const text = `
-TODO: 本文のTODOはエラーになる
+      const text = `TODO: 本文のTODOはエラーになる
 `;
       const result = await lint(text);
       assert.strictEqual(result.messages.length, 1);
@@ -69,22 +66,35 @@ TODO: 本文のTODOはエラーになる
   });
 
   context("when both body and footnote contain TODO", () => {
-    // Skipped due to same reason as above.
-    it.skip("should report error only for body", async () => {
-      const text = `
-本文。
-脚注[^1]
+    it("should report error only for body", async () => {
+      const text = `本文。脚注[^1]
 
 [^1]: TODO: 脚注内のTODOは無視される
 
 TODO: 本文のTODOはエラーになる
 `;
       const result = await lint(text);
-      assert.strictEqual(result.messages.length, 1);
-      assert.strictEqual(
-        result.messages[0].message,
-        "Found TODO: 'TODO: 本文のTODOはエラーになる'",
+      const todoErrors = result.messages.filter(
+        (m) => m.ruleId === "no-todo",
       );
+      assert.strictEqual(todoErrors.length, 1);
+      assert.ok(todoErrors[0].message.includes("本文のTODO"));
+    });
+  });
+
+  context("when multiple footnotes exist", () => {
+    it("should filter all footnote errors", async () => {
+      const text = `本文[^1]と[^2]。
+
+[^1]: TODO: 最初の脚注
+
+[^2]: TODO: 二番目の脚注
+`;
+      const result = await lint(text);
+      const todoErrors = result.messages.filter(
+        (m) => m.ruleId === "no-todo",
+      );
+      assert.strictEqual(todoErrors.length, 0);
     });
   });
 });
