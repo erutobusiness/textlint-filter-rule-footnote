@@ -38,7 +38,7 @@ describe("textlint-filter-rule-footnote", () => {
     });
   };
 
-  context("when footnote contains TODO", () => {
+  describe("when footnote contains TODO", () => {
     it("should not report error", async () => {
       const text = `本文。脚注[^1]
 
@@ -52,7 +52,7 @@ describe("textlint-filter-rule-footnote", () => {
     });
   });
 
-  context("when body contains TODO", () => {
+  describe("when body contains TODO", () => {
     it("should report error", async () => {
       const text = `TODO: 本文のTODOはエラーになる
 `;
@@ -65,7 +65,7 @@ describe("textlint-filter-rule-footnote", () => {
     });
   });
 
-  context("when both body and footnote contain TODO", () => {
+  describe("when both body and footnote contain TODO", () => {
     it("should report error only for body", async () => {
       const text = `本文。脚注[^1]
 
@@ -82,7 +82,7 @@ TODO: 本文のTODOはエラーになる
     });
   });
 
-  context("when multiple footnotes exist", () => {
+  describe("when multiple footnotes exist", () => {
     it("should filter all footnote errors", async () => {
       const text = `本文[^1]と[^2]。
 
