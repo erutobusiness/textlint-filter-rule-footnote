@@ -1,7 +1,7 @@
 # textlint-filter-rule-footnote
 
 [![npm](https://img.shields.io/npm/v/textlint-filter-rule-footnote.svg)](https://www.npmjs.com/package/textlint-filter-rule-footnote)
-[![test](https://github.com/erutobusiness/textlint-filter-rule-footnote/actions/workflows/test.yml/badge.svg)](https://github.com/erutobusiness/textlint-filter-rule-footnote/actions/workflows/test.yml)
+[![test](https://github.com/eruto-lint/textlint-filter-rule-footnote/actions/workflows/test.yml/badge.svg)](https://github.com/eruto-lint/textlint-filter-rule-footnote/actions/workflows/test.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 textlint filter rule that ignores errors in footnotes.
